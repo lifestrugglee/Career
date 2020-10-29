@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html> 
+	<head> 
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<title>Let's go</title> 
+		<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+		<script>
+			var kyoto = [
+				['三十三間堂', 34.987761, 135.771734 , 'view'],
+				['伊藤久右衛門 - 289', 34.896413, 135.808774 , 'food'],
+				['中村藤吉本店綠茶雪糕 - 287', 34.889294, 135.801625 , 'food'],
+				['伏見稻荷大社 - 256', 34.967087, 135.772631 , 'view'],
+				['金閣寺 - 247', 35.039251, 135.729217 , 'view'],
+				['賀茂別雷神社 - 243', 35.059287, 135.752504 , 'view'],
+				['銀閣寺 - 236', 35.027001, 135.798185 , 'view'],
+				['平安神宮 - 234', 35.015955, 135.782418 , 'view'],
+				['二条城 - 230', 35.014164, 135.748190 , 'view'],
+				['清水寺 - 206', 34.994846, 135.785047 , 'view']
+			];
+
+			var osaka = [
+				['[必去]大阪城 - 154', 34.687253, 135.526084 , 'view'],
+				['萬博紀念公園 - 184', 34.806565, 135.530149 , 'view'],
+				['大阪府咲洲庁舎展望台 - 140', 34.638082, 135.414960 , 'view'],
+				['[電腦電器]百貨梅田 - 130', 34.704227, 135.496146 , 'shopping'],
+				['[夜景]空中庭園展望台 - 127', 34.705255, 135.490533 , 'view'],
+				['[1st]四天王寺 - 108', 34.653295, 135.516473 , 'view'],
+				['[便宜]激安之殿堂', 34.669319, 135.502655 , 'shopping'],
+				['[優惠卷]Bic Camera', 34.666714, 135.502632 , 'shopping'],
+				['黑門市場', 34.665301, 135.506561 , 'food']
+			];
+
+			function show(input){
+				var locations = '';
+				var x;
+				var y;
+				if( input=== undefined || input == 'osaka'){
+					locations = osaka;
+					x = 34.674559;
+					y = 135.498737;
+				}else{
+					locations = kyoto;
+					x = 35.010913;
+					y = 135.741986;
+				}
+				
+				var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 13,
+				center: new google.maps.LatLng( x , y ),
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+				});
+
+				var infowindow = new google.maps.InfoWindow();
+
+				var marker, i , colorDot;
+
+				for (i = 0; i < locations.length; i++) {
+					if ( locations[i][3] == 'view' ){
+						colorDot = 'green';
+					}else if ( locations[i][3] == 'food' ){
+						colorDot = 'red';
+					}else if ( locations[i][3] == 'shopping' ){
+						colorDot = 'yellow';
+					}
+					marker = new google.maps.Marker({ 
+						icon: 'http://maps.google.com/mapfiles/ms/icons/' + colorDot + '-dot.png',
+						position: new google.maps.LatLng(locations[i][1], locations[i][2]), 
+						map: map
+				});
+
+				google.maps.event.addListener(marker, 'click', (function(marker, i) {
+					return function() {
+							infowindow.setContent(locations[i][0]);
+							infowindow.open(map, marker);
+							}
+					})(marker, i));
+				}
+			}
+
+			$(document).ready(function(){
+				show();
+				$('button').click(function(){
+					show($(this).val());
+				});
+			});
+		</script>
+		<style>
+			#option{
+				text-align: center;
+			}
+			#option button{
+				margin: 2px 9px 3px 9px;
+				background-color: white;
+				color: #4CAF50;
+				border: 3px solid #4CAF50; /* Green */
+				border-radius: 8px;
+				padding: 10px 25px;
+				font-weight: bold;
+			}
+			
+			
+		</style>
+	</head> 
+	<body>
+		<div id="option">
+			| <img src="http://maps.google.com/mapfiles/ms/icons/yellow-dot.png">Shopping | 
+			<img src="http://maps.google.com/mapfiles/ms/icons/red-dot.png">Food | 
+			<img src="http://maps.google.com/mapfiles/ms/icons/green-dot.png">View |
+			<br>
+			<button value="osaka" onclick="show(osaka);">OSAKA</button>
+			<button value="kyoto" onclick="show(kyoto);">KYOTO</button>
+		</div>
+		<div id="map" style="height: 500px;"></div>
+	</body>
+</html>
