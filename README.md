@@ -12,7 +12,7 @@ Sincerely,
 Patrick C.
 
 
-====== Detailed for each folder =====
+======= Detailed for each folder =======
 # Better way to get correlation - 2020/11/30
 To easily having a vision of correlation results, I built this webpage by using Python as a backend. 
 
