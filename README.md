@@ -4,9 +4,6 @@ Hello,
 
 Here is the place for me to demonstrate my skills and abilities.
 
-
-
-
 Sincerely,
 
 Patrick C.
@@ -20,5 +17,7 @@ Instead of continuing editing on the excel files after the value updated, I crea
 
 #### Details
 Python Package: glob, numpy
+
 JQuery: 3.5.1
+
 Bootstrap: 3.4.1
