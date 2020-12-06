@@ -2,6 +2,16 @@
 # -*- coding: utf-8 -*-
 ##########################################################################
 #                                                                        #
+# It's just a free tool for helping people to make a reference,          #
+# BUT NOT FOR MAKING PROFIT!                                             #
+#                                                                        #
+# It's using the function of Google Scholar which generating the file in #
+# EndNote formate, and then transfer it to the formate accepting in      #
+# MS Word.                                                               #
+#                                                                        #
+##########################################################################
+#                                                                        #
+# 2020/05/14                                                             #
 # Note: this code remain the issue of reading latin or spanish character #
 # if title include '-' then will get an error >>> needs fix              #
 #                                                                        #
