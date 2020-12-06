@@ -16,7 +16,7 @@ To easily having a vision of correlation results, I built this webpage by using 
 Instead of continuing editing on the excel files after the value updated, I created the python code to automatically read the files and generated the results with HTML, CSS, JQuery, Javascript, and Bootstrap.
 
 #### Details
-Python Package: glob, numpy
+Python (3.6.2) Package: glob, numpy
 
 JQuery: 3.5.1
 
