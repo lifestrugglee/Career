@@ -95,12 +95,8 @@ class jsonParser():
     def set_Name(self, namestr):
         self.json_temp['name'] = namestr
 
-    def get_Name(self):
-        tmpname = self.json_temp['name'].replace('"', '').replace("'", "")
-        charc = r'([<>#/\\|\?]+)'
-        for i in re.findall(charc, tmpname):
-            tmpname = tmpname.replace(i, '_')
-        return tmpname
+    def get_identifier(self):
+        return self.json_temp['identifier']
 
     def set_identifier(self, identifier_str):
         self.json_temp["identifier"] = identifier_str
@@ -217,7 +213,7 @@ class jsonParser():
     
     def saveJSON2file(self, dirpath):
         json_string = json.dumps(self.json_temp)
-        filepath = os.path.join(dirpath, f"{self.get_Name()}.json")
+        filepath = os.path.join(dirpath, f"{self.get_identifier()}.json")
         with open(filepath, 'w') as outf:
             json.dump(json_string, outf)
         print(f'Json file is saved at {filepath}')
@@ -397,7 +393,7 @@ def main():
     manualTarget = ''
     # get target dataset id list
     idls = re.findall(r'"ID":([\d]+)', content)
-    idls = idls[65:]
+    # idls = idls[90:]
     totalNum = len(idls)
     for idx in range(len(idls)):
         idnum = idls[idx]
