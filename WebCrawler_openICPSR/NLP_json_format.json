@@ -1,0 +1,90 @@
+{
+   "@context":"https://schema.org/",
+   "@type":"Dataset",
+   "name":"Dataset Name (Usually is the title of the dataset)",
+   "identifier":"Number of the dataset, from 1 to n",
+   "description":"Dataset description, if the dataset has description then grab the content, otherwise put the dataset name here.",
+   "conditionsOfAccess":"Download",
+   "sameAs":"",
+   "keywords":[
+      "Repository Name, what country is the dataset about, how many case exist in the data (ignore if the data doesn't have), data type (like epidemiology, imagine, omics, Literature etc)"
+   ],
+   "additionalType":"Datatype",
+   "variableMeasured":[
+      "Variable: What kind of column contains in the data"
+   ],
+   "isBasedOn":{
+      "@type":"CreativeWork",
+      "sourceOrganization":"The organization of the data source (e.g. if the data is from Johns Hopkins and LitCOVID, then it fill in "Johns Hopkins, LitCOVID")"
+   },
+   "inLanguage":"Dataset's language",
+   "license":"",
+   "hasPart":[
+      
+   ],
+   "creator":{
+      "@type":"Organization",
+      "employees":{
+         "@type":"Person",
+         "name":"Creator's name"
+      },
+      "name":"Creator's organization",
+      "contactPoint":{
+         "@type":"ContactPoint",
+         "email":"Creator's email"
+      },
+      "location":"Creator's location (City, State, Country)"
+   },
+   "publication":{
+      "@type":"publicationEvent",
+      "name":"Publication paper's title",
+      "identifier":{
+         "@type":"PropertyValue",
+         "propertyID":[
+            "DOI: ",
+            "PMID: "
+         ]
+      }
+   },
+   "author":"authors name",
+   "dateCreated":"yyyy-mm-dd",
+   "dateModified":"yyyy-mm-dd",
+   "distribution":[
+      {
+         "@type":"DataDownload",
+         "encodingFormat":"Format of download data (e.g. txt, zip)",
+         "contentUrl":"download data link"
+      }
+   ],
+   "spatialCoverage":{
+      "@type":"Place",
+      "address":{
+         "@type":"PostalAddress",
+         "streetAddress":"Creator's organization City, State, Country"
+      }
+   },
+   "locationCreated":{
+      "@type":"Country",
+      "name":"Country name"
+   },
+   "url":"url of the page",
+   "comment":"",
+   "maintainer":{
+      "@type":"Organization",
+      "name":"Repository name (e.g. Kaggle, GitHub)"
+   },
+   "contentRating":"",
+   "rating":{
+      "viewCount":"",
+      "voteCount":"",
+      "usabilityRating":"",
+      "downloadCount":""
+   },
+   "size":"",
+   "rotalBytes":"",
+   "files":[
+      
+   ],
+   "isReviewed":true,
+   "hasData":true
+}
